@@ -36,3 +36,25 @@ CSS manupilation
     color : red;
 }}>Insert Sample Text</p>
 ``` 
+
+
+For Dynamic Image files using Component
+Take note when calling the function, attribute should contain require and default. 
+```
+function BorderedImageFrame(props) {
+    return (
+        <img src={props.imgLink} style={{
+            border: "4px solid red"
+        }} />
+    )
+}
+
+<BorderedImageFrame imgLink= {require("./res.jpg").default}/>
+```
+
+Alternatively,
+import img and declare a variable for it, call the variable in the src
+```
+import resImg from "./res.jpg"
+<img src={resImg}></img>
+```

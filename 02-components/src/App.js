@@ -2,6 +2,7 @@
 // import './App.css';
 import React from "react";
 import Header from "./Header"
+import resImg from "./res.jpg"
 
 function Alert(props) {
     return (
@@ -33,6 +34,7 @@ function App() {
             <Alert message="What the?!" bgColor="pink" />
             <BorderedImageFrame imgLink= {require("./res.jpg").default}/>
             <SumOfTwo n1={3} n2={4}/>
+            <img src={resImg}></img>
         </div>
     );
 }
