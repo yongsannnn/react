@@ -2,27 +2,14 @@
 // import './App.css';
 import React from "react";
 import Header from "./Header"
-import resImg from "./res.jpg"
+import BorderedImageFrame from "./BorderedImage"
+import SumOfTwo from "./SumOfTwo"
 
 function Alert(props) {
     return (
         <div style={{
             backgroundColor: props.bgColor,
         }}>{props.message}</div>
-    )
-}
-
-function BorderedImageFrame(props) {
-    return (
-        <img src={props.imgLink} style={{
-            border: "4px solid red"
-        }} />
-    )
-}
-
-function SumOfTwo (props){
-    return(
-    <div>{props.n1 + props.n2}</div>
     )
 }
 
@@ -33,8 +20,7 @@ function App() {
             <Header />
             <Alert message="What the?!" bgColor="pink" />
             <BorderedImageFrame imgLink= {require("./res.jpg").default}/>
-            <SumOfTwo n1={3} n2={4}/>
-            <img src={resImg}></img>
+            <SumOfTwo n1={8} n2={4}/>
         </div>
     );
 }

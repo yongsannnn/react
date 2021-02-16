@@ -18,7 +18,7 @@ In order to get image, must place within src folder and use the following
 ```
 <img src = {require("./img.jpg").default}/>
 ```
-Alternatively, importing the image using import/from
+Alternatively, importing the image using import/from.
 This method will omit the require.() and .default
 ```
 import cafeInterior from "./cafe-interior.jpg";
@@ -38,7 +38,7 @@ CSS manupilation
 ``` 
 
 
-For Dynamic Image files using Component
+For Dynamic Image files using Component.
 Take note when calling the function, attribute should contain require and default. 
 ```
 function BorderedImageFrame(props) {
