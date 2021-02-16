@@ -1,6 +1,8 @@
 import React from "react";
+import resImg from "./res.jpg"
+import bgImg from "./bgimgg.jpg"
 
-// a CLASS-based component
+// a CLASS-based component  
 // 1. a class is a container that can contain variables and functions
 // 2. a class can be cloned. It's like a prototype/boiler plate. The clone is known as instances. 
 //    a class is like a definition of an entity
@@ -12,7 +14,8 @@ import React from "react";
 //Advance Object Oriented Programming (OOP)
 class NumberBox extends React.Component {
     state = {
-        "count": 10
+        "count": 10,
+        "image": resImg
     }
 
     render() {
@@ -32,6 +35,10 @@ class NumberBox extends React.Component {
                 </div>
                 <button onClick={this.increment}>Increment</button>
                 <button onClick={this.decrement}>Decrement</button>
+                <div>
+                    <img onClick={this.changeImg} src={this.state.image}></img>
+                </div>
+
             </React.Fragment>
 
         )
@@ -49,6 +56,17 @@ class NumberBox extends React.Component {
         this.setState({
             "count": this.state.count - 1
         })
+    }
+    changeImg = () =>{
+        if(this.state.image == resImg){
+            this.setState({
+                "image": bgImg
+            })
+        } else {
+            this.setState({
+                "image": resImg
+            })
+        }
     }
 }
 
