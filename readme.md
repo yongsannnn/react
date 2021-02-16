@@ -16,7 +16,7 @@ import React from "react";
 
 In order to get image, must place within src folder and use the following
 ```
-<img src = {require.("./img.jpg).default}/>
+<img src = {require("./img.jpg").default}/>
 ```
 Alternatively, importing the image using import/from
 This method will omit the require.() and .default
