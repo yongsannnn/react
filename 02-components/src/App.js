@@ -19,6 +19,12 @@ function BorderedImageFrame(props) {
     )
 }
 
+function SumOfTwo (props){
+    return(
+    <div>{props.n1 + props.n2}</div>
+    )
+}
+
 
 function App() {
     return (
@@ -26,6 +32,7 @@ function App() {
             <Header />
             <Alert message="What the?!" bgColor="pink" />
             <BorderedImageFrame imgLink= {require("./res.jpg").default}/>
+            <SumOfTwo n1={3} n2={4}/>
         </div>
     );
 }
