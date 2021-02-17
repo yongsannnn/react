@@ -58,3 +58,31 @@ import img and declare a variable for it, call the variable in the src
 import resImg from "./res.jpg"
 <img src={resImg}></img>
 ```
+
+CLASS-based component  
+1. a class is a container that can contain variables and functions
+2. a class can be cloned. It's like a prototype/boiler plate. The clone is known as instances. 
+3. a class is like a definition of an entity
+4. an instance of a class is a specific example of that entity
+Calling a class NumberBox, everything in React.Component is copied into NumberBox.
+NumberBox is now an extension of React.Component.
+```
+class NumberBox extends React.Component {
+    render(){
+        return()
+    }
+}
+```
+
+#STATE
+It is a special keyword. When state changes the function will withdraw. 
+```
+class NumberBox extends React.Component {
+    state = {
+        "count":10,
+    }
+    render(){
+        return()
+    }
+}
+```
