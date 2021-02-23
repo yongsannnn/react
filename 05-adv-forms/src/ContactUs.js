@@ -88,3 +88,5 @@ export default ContactUs
 // Which country they are from (Singapore, Malaysia or Thailand)
 
 // Once the user has entered their info, and click the submit button, show what they have entered in an alert box.
+
+// Allow the user to specify how they would like to be contacted. Allow a choice of email, phone number or slow mail. Present those options as checkboxes, and the user may check more than one of them.  
