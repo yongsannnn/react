@@ -240,5 +240,4 @@ class SurveyForm extends React.Component {
         })
     }
 }
-
     export default SurveyForm
