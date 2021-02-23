@@ -48,6 +48,7 @@ class ContactUs extends React.Component {
                     </div>
                 </div>
                 <button disabled={!this.state.fname || !this.state.lname || !this.state.country || !this.state.enquiries || !(this.state.contactMe.length > 0)} onClick={this.submitInfo}>Submit</button>
+                {/* <button disabled={!this.alternateValidateOk()} onClick={this.submitInfo}>Submit</button> */}
             </React.Fragment>
         )
     }
@@ -61,16 +62,49 @@ class ContactUs extends React.Component {
     updateContact = (event) => {
         if (this.state.contactMe.includes(event.target.value) === false) {
             this.setState({
-                "contactMe": [...this.state.contactMe, event.target.value]
+                [event.target.name]: [...this.state.contactMe, event.target.value]
             })
         } else {
             this.setState({
-                "contactMe": [...this.state.contactMe].filter(selection => selection !== event.target.value)
+                [event.target.name]: [...this.state.contactMe].filter(selection => selection !== event.target.value)
             })
         }
-
     }
 
+    alternateUpdateContact = (event) => {
+        //If this is true means it isn't selected before
+        if (this.state.contactMe.includes(event.target.value) === false){
+            //Clone
+            let clone = [...this.state.contactMe]
+            //Push
+            clone.push(event.target.value)
+            //Update
+            this.setState({
+                contactMe : clone
+            })
+        } else {
+            // If the value is already in array, we are unchecking the array
+            //Clone
+            let clone = this.state.contactMe.slice()
+            //Push
+            let index = clone.indexOf(event.target.value)
+            clone.splice(index,1)
+            //Update
+            this.setState({
+                contactMe : clone
+            })
+        }
+    }
+
+    alternateValidateOk=()=>{
+        return (
+            this.state.fname.length > 0 &&
+            this.state.lname.length > 0 &&
+            this.state.enquiries.length > 0 &&
+            this.state.country.length > 0 &&
+            this.state.contactMe.length > 0
+        )
+    }
     submitInfo = () => {
         alert(`First Name: ${this.state.fname}
         Last Name: ${this.state.lname}
