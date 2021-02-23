@@ -8,11 +8,16 @@ class Todo extends React.Component {
     renderTask() {
         let t = [];
         for (let eachTask of this.state.task) {
-            t.push(<li>{eachTask}</li>)
+            t.push(<li style={{ color: "blue" }}>{eachTask}</li>)
         }
         return t
     }
 
+    renderTask2() {
+        return this.state.task.map(function (todo) {
+            return <li style={{ color: "pink" }}>{todo}</li>
+        })
+    }
 
     render() {
         let t = [];
@@ -31,7 +36,13 @@ class Todo extends React.Component {
                 </ul>
                 <h1>Technique Three: Mapping</h1>
                 <ul>
-                    {/* {this.state.task.map(function(todo))} */}
+                    {this.state.task.map(function (todo) {
+                        return <li style={{ color: "red" }}>{todo}</li>
+                    })}
+                </ul>
+                <h1>Technique Four: Use map inside a function</h1>
+                <ul>
+                    {this.renderTask2()}
                 </ul>
             </React.Fragment>
         )
