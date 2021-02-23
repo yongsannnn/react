@@ -40,13 +40,13 @@ class ContactUs extends React.Component {
                 </div>
                 <div>
                     <label>How would you like to be contacted</label>
-                        <div>
-                            <input type="checkbox" value="email" name="contactMe" onChange={this.updateContact}  checked={this.state.contactMe.includes("email")}/><label>Email</label>
-                            <input type="checkbox" value="phone-number" name="contactMe" onChange={this.updateContact} checked={this.state.contactMe.includes("phone-number")}/><label>Phone Number</label>
-                            <input type="checkbox" value="slow-mail" name="contactMe" onChange={this.updateContact} checked={this.state.contactMe.includes("slow-mail")}/><label>Slow Mail</label>
-                        </div>
+                    <div>
+                        <input type="checkbox" value="email" name="contactMe" onChange={this.updateContact} checked={this.state.contactMe.includes("email")} /><label>Email</label>
+                        <input type="checkbox" value="phone-number" name="contactMe" onChange={this.updateContact} checked={this.state.contactMe.includes("phone-number")} /><label>Phone Number</label>
+                        <input type="checkbox" value="slow-mail" name="contactMe" onChange={this.updateContact} checked={this.state.contactMe.includes("slow-mail")} /><label>Slow Mail</label>
+                    </div>
                 </div>
-                <button disabled={!this.state.fname || !this.state.lname || !this.state.country || !this.state.enquiries || !this.state.contactMe} onClick={this.submitInfo}>Submit</button>
+                <button disabled={!this.state.fname || !this.state.lname || !this.state.country || !this.state.enquiries || !(this.state.contactMe.length > 0)} onClick={this.submitInfo}>Submit</button>
             </React.Fragment>
         )
     }
@@ -57,14 +57,14 @@ class ContactUs extends React.Component {
         })
     }
 
-    updateContact=(event)=>{
-        if (this.state.contactMe.includes(event.target.value) === false){
+    updateContact = (event) => {
+        if (this.state.contactMe.includes(event.target.value) === false) {
             this.setState({
-                "contactMe" : [...this.state.contactMe, event.target.value]
+                "contactMe": [...this.state.contactMe, event.target.value]
             })
         } else {
             this.setState({
-                "contactMe" : [...this.state.contactMe].filter(selection=>selection !== event.target.value)
+                "contactMe": [...this.state.contactMe].filter(selection => selection !== event.target.value)
             })
         }
 
@@ -77,7 +77,7 @@ class ContactUs extends React.Component {
         Country: ${this.state.country}
         Contact Me By: ${this.state.contactMe}`)
     }
-    
+
 }
 
 export default ContactUs
