@@ -13,7 +13,8 @@ class SurveyForm extends React.Component {
         email: "",
         rating: 0,
         country: "",
-        knowAbout: [] //Multiple values can be selected from checkboxes. Default should be an array
+        knowAbout: [], //Multiple values can be selected from checkboxes. Default should be an array
+        keepInTouch: [] // Contact via email, sms,whatsapp
     }
 
     render() {
@@ -109,6 +110,36 @@ class SurveyForm extends React.Component {
                         </div>
                     </div>
                     {/* end checkboxes */}
+                    <div>
+                        <label className="form-label">Country</label>
+                        <select
+                            className="form-control"
+                            name="country"
+                            value={this.state.country}
+                            onChange={this.updateCountry}
+                        >
+                            <option>Singapore</option>
+                            <option>Malaysia</option>
+                            <option>Indonesia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label className="form-label">How do keep in touch</label>
+                        <select
+                            className="form-control"
+                            name="keepInTouch"
+                            onChange={this.updateKeepInTouch}
+                            value={this.state.keepInTouch}
+                            multiple
+
+                        >
+                            <option>Email</option>
+                            <option>SMS</option>
+                            <option>Whatsapp</option>
+                            <option>Mail Catalog</option>
+                        </select>
+                    </div>
+
                 </div>
             </React.Fragment>
         )
@@ -124,7 +155,7 @@ class SurveyForm extends React.Component {
             rating: event.target.value
         });
     };
-    updateKnowAbout = event =>{
+    updateKnowAbout = event => {
         // Beginner way but not encourage
         // This does not respect immutability
         // let knowAbout = this.state.knowAbout
@@ -159,7 +190,7 @@ class SurveyForm extends React.Component {
         //     "knowAbout" : clone
         // })
 
-        if (this.state.knowAbout.includes(event.target.value) === false){
+        if (this.state.knowAbout.includes(event.target.value) === false) {
             // Method Three
             // Do all steps together
             this.setState({
@@ -167,7 +198,7 @@ class SurveyForm extends React.Component {
             })
         } else {
             // the checkbox is already checked, so should remove from string when unchecked
-            
+
             // 1. Clone the Array
             // let clone = this.state.knowAbout.slice();
             // 2. Remove the item from the clonsed array
@@ -180,9 +211,34 @@ class SurveyForm extends React.Component {
             // })
 
             this.setState({
-                "knowAbout" :[...this.state.knowAbout].filter(item=>item!==event.target.value)
+                "knowAbout": [...this.state.knowAbout].filter(item => item !== event.target.value)
             })
         }
+    }; // End of updateKnowAbout
+
+    updateCountry = (event) => {
+        this.setState({
+            "country": event.target.value
+        })
+    }
+
+    updateKeepInTouch = event => {
+        let selectedOptions = event.target.selectedOptions;
+        console.log(selectedOptions);
+        //   let options = Array.from(selectedOptions, function(option) {
+        //       return option.value;
+        //   })
+        //console.log(options)
+
+        let optionsInText = [];
+        for (let option of selectedOptions) {
+            optionsInText.push(option.value);
+        }
+
+        this.setState({
+            'keepInTouch': optionsInText
+        })
     }
 }
-export default SurveyForm
+
+    export default SurveyForm
