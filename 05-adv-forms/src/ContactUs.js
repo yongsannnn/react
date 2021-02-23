@@ -32,6 +32,7 @@ class ContactUs extends React.Component {
                     <label>Country:</label>
                     <div>
                         <select name="country" value={this.state.country} onChange={this.updateInfo}>
+                            <option>Select a country</option>
                             <option>Singapore</option>
                             <option>Malaysia</option>
                             <option>Thailand</option>
