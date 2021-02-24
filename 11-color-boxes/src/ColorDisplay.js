@@ -8,7 +8,8 @@ export default function ColorDisplay(props) {
                 width: "50px",
                 height:"50px",
                 border: "1px solid black",
-                backgroundColor: b.color
+                backgroundColor: b.color,
+                display: "inline-block"
             }}></div>)
         }
         return boxes

@@ -9,6 +9,11 @@ Once folder setup is done
 cd foldername
 npm start
 ```
+
+To copy a folder using linix
+```
+cp -r foldertocopy namefornewfolder
+```
 Using React.Fragment, replaces <div> after transpilation will not show on html. 
 ```
 import React from "react"; 
