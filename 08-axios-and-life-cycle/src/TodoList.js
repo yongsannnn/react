@@ -24,6 +24,7 @@ class TodoList extends React.Component {
         })
     }
 
+    //Function + Accumulator Strategy
     renderList = () => {
         let list = [];
         for (let task of this.state.tasks) {
