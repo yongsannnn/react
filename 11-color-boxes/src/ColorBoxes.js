@@ -1,17 +1,17 @@
 import React from "react"
 import ColorDisplay from "./ColorDisplay"
-// import ColorControl from "./ColorControl"
+import ColorControl from "./ColorControl"
 
 export default class ColorBoxes extends React.Component {
     state = {
         boxes:[{
             "color": "white"
         },{
-            "color": "red"
+            "color": "white"
         },{
-            "color": "blue"
+            "color": "white"
         },{
-            "color": "green"
+            "color": "white"
         }
         ]}
 
@@ -19,7 +19,7 @@ export default class ColorBoxes extends React.Component {
         return (
             <React.Fragment>
                 <ColorDisplay boxes={this.state.boxes} />
-                {/* <ColorControl boxes={this.state.boxes}/> */}
+                <ColorControl boxes={this.state.boxes} onChangeColor={this.updateBox}/>
             </React.Fragment>
 
         )
@@ -28,7 +28,7 @@ export default class ColorBoxes extends React.Component {
     updateBox = (event)=>{
         let index = event.target.name
         let clone = this.state.boxes.map(function(eachBox, boxIndex){
-            if (boxIndex !== index){
+            if (boxIndex != index){
                 return eachBox
             } else {
                 return {color:event.target.value}
