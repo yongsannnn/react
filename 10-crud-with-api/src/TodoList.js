@@ -24,12 +24,7 @@ export default class TodoList extends React.Component {
                 <h1>Task List</h1>
                 {this.renderList()}
                 <div id="popup" style={{display: this.state.editingTask ? "block" : "none"}}>
-                    <button onClick={()=>{
-                        this.setState({
-                            editingTask : false
-                        })
-                        this.updateTask();
-                    }}>Ok</button>
+                    <button>Done</button>
                 </div>
             </React.Fragment>
         )
