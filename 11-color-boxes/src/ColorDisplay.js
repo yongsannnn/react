@@ -19,6 +19,4 @@ export default function ColorDisplay(props) {
         </React.Fragment>
 
     )
-
-
 }
