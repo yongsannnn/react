@@ -9,7 +9,8 @@ export default class TodoList extends React.Component {
                 "done": false
             }
         ],
-        newTitle: ""
+        newTitle: "",
+        editingTask: false
     }
     render() {
         return (
@@ -22,6 +23,9 @@ export default class TodoList extends React.Component {
                 <button onClick={this.addTask}>Add Task</button>
                 <h1>Task List</h1>
                 {this.renderList()}
+                <div id="popup" style={{display: this.state.editingTask ? "block" : "none"}}>
+                    <button>Done</button>
+                </div>
             </React.Fragment>
         )
     }
@@ -45,6 +49,7 @@ export default class TodoList extends React.Component {
         })
 
     }
+
     renderList = () => {
         let list = [];
         for (let t of this.state.tasks) {
@@ -53,6 +58,7 @@ export default class TodoList extends React.Component {
                 <input type="checkbox" checked={t.done} onChange={() => {
                     this.updateCheckbox(t);
                 }} />
+                <button onClick={()=>{this.editTask(t)}}>Edit</button>
                 <button onClick={()=>{this.deleteTask(t)}}>Delete</button>
             </div>)
         }
@@ -153,6 +159,7 @@ export default class TodoList extends React.Component {
         ]            
         })
     }
+    
     deleteTask = (task) =>{
         // 1. Find the index of the task we want to delete
         let index = this.state.tasks.findIndex(t=> t.id === task.id);
@@ -166,5 +173,10 @@ export default class TodoList extends React.Component {
             "tasks": clonedArray
         })
     }
-    
+
+    editTask = (task)=>{
+        this.setState({
+            editingTask:true
+        })
+    }
 }
