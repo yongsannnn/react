@@ -23,6 +23,7 @@ export default class Library extends React.Component {
         author: "",
         genre: "",
         tags: [],
+        // Setting up my flag variable
         editing: false
     }
  // Alternate way to do list rendering data 
@@ -51,7 +52,7 @@ addBook = () => {
         genre: this.state.genre,
         tags: this.state.tags
 
-        // destructuring & syntatic sugar
+        // destructuring & syntactic sugar
         // const { title, author, genre , tags } = this.state;
         // let newBook = {
         //     id: Math.floor(Math.random() * 1000) + 1,
