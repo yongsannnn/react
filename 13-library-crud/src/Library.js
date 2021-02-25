@@ -50,6 +50,13 @@ addBook = () => {
         author: this.state.author,
         genre: this.state.genre,
         tags: this.state.tags
+
+        // destructuring & syntatic sugar
+        // const { title, author, genre , tags } = this.state;
+        // let newBook = {
+        //     id: Math.floor(Math.random() * 1000) + 1,
+        //     title, author, genre, tags
+        // }
     }
     // Clone the books array and push the newbook and add into state
     this.setState({
@@ -125,10 +132,28 @@ updateTags = (event) => {
         this.setState({
             [event.target.name]: [...this.state.tags, event.target.value]
         })
+
+        //Alternate
+        // let clone = this.state.tags.slice();
+        // clone.push(event.target.value)
+        // this.setState({
+        //     "tags": clone
+        // })
+
     } else {
         this.setState({
             [event.target.name]: [...this.state.tags].filter(selected => selected !== event.target.value)
         })
+
+        //Alternate
+        // let clone = this.state.tags.slice();
+        // let index = this.state.tags.indexOf(e.target.value);
+        // clone.splice(index,1)
+        // this is not a good idea because this does not change the array in an immutable manner
+        // why? this can lead to potential side effects (will talk about it when project 3)
+        // this.setState({
+        //     tags: clone
+        // })
     }
 }
 
