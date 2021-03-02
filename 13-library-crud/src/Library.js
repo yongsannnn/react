@@ -22,7 +22,8 @@ export default class Library extends React.Component {
         title: "",
         author: "",
         genre: "",
-        tags: [],
+        tags : [],
+            
         // Setting up my flag variable
         editing: false
     }
