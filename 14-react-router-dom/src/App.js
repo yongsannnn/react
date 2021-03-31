@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import ThankYou from "./pages/ThankYou"
+import Posts from "./pages/Posts"
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/about-us" className="nav-link">About</Link>
                     <Link to="/contact" className="nav-link">Contact Us</Link>
+                    <Link to="/post" className="nav-link">Post</Link>
                 </div>
             </nav>
             <Switch>
@@ -29,6 +31,9 @@ function App() {
                     </Route>
                     <Route exact path="/thank-you">
                         <ThankYou />
+                    </Route>
+                    <Route exact path="/post">
+                        <Posts />
                     </Route>
                 </div>
             </Switch>
