@@ -6,17 +6,16 @@ import About from "./pages/About"
 import Contact from "./pages/Contact"
 import ThankYou from "./pages/ThankYou"
 import Posts from "./pages/Posts"
+import BMI from "./pages/BMI"
 
 function App() {
     return (
         <Router>
             <nav className="navbar navbar-light bg-light">
-                <div className="navbar-nav">
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/about-us" className="nav-link">About</Link>
                     <Link to="/contact" className="nav-link">Contact Us</Link>
                     <Link to="/post" className="nav-link">Post</Link>
-                </div>
             </nav>
             <Switch>
                 <div className="container">
@@ -34,6 +33,9 @@ function App() {
                     </Route>
                     <Route exact path="/post">
                         <Posts />
+                    </Route>
+                    <Route exact path="/bmi">
+                        <BMI />
                     </Route>
                 </div>
             </Switch>
