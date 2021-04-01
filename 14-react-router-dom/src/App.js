@@ -16,6 +16,7 @@ function App() {
                     <Link to="/about-us" className="nav-link">About</Link>
                     <Link to="/contact" className="nav-link">Contact Us</Link>
                     <Link to="/post" className="nav-link">Post</Link>
+                    <Link to="/bmi" className= "nav-link">BMI</Link>
             </nav>
             <Switch>
                 <div className="container">
